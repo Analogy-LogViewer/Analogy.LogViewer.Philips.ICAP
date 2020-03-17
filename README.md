@@ -3,3 +3,10 @@
 
 
 Philips' ICAP BU data provider
+
+
+
+
+## How To Use
+1. Download the latest [Analogy Log Viewer](https://github.com/Analogy-LogViewer/Analogy.LogViewer) from the [release](https://github.com/Analogy-LogViewer/Analogy.LogViewer/releases) section (.net framework or .net Core version).
+2. Download (or Compile) this project and put the [compiled DLL](https://github.com/Analogy-LogViewer/Analogy.LogViewer.Philips.ICAP/releases) in the same folder as the Analogy Log Viewer.
