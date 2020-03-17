@@ -4,7 +4,9 @@
 
 Philips' ICAP BU data provider
 
-
+- Supported formats:
+  1. *.log Files: Client logs Files.
+  2. *.Json - Radara Json Log Files.
 
 
 ## How To Use
