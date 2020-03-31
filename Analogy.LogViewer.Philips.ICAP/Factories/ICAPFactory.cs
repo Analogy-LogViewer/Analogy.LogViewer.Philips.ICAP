@@ -9,52 +9,28 @@ namespace Analogy.LogViewer.Philips.Factories
 {
     public class ICAPFactory : IAnalogyFactory
     {
-        public Guid FactoryID { get; } = new Guid("F0FD2BC8-5DA5-4A7D-8E09-4E4C411EDA0C");
+        internal static Guid Id = new Guid("F0FD2BC8-5DA5-4A7D-8E09-4E4C411EDA0C");
+        public Guid FactoryId { get; } = Id;
         public string Title { get; } = "Philips ICAP BU Logs";
-        public IAnalogyDataProvidersFactory DataProviders { get; }
-        public IAnalogyCustomActionsFactory Actions { get; }
         public IEnumerable<IAnalogyChangeLog> ChangeLog { get; } = new List<IAnalogyChangeLog>(0);
         public IEnumerable<string> Contributors { get; } = new List<string> { "Lior Banai" };
         public string About { get; } = "Created by Lior Banai";
-
-
-        public ICAPFactory()
-        {
-            DataProviders = new ICAPDataSourcesFactory();
-            Actions = new ICAPCustomActionFactory();
-        }
-
     }
 
     public class ICAPDataSourcesFactory : IAnalogyDataProvidersFactory
     {
-        public IEnumerable<IAnalogyDataProvider> Items { get; }
+        public Guid FactoryId { get; } = ICAPFactory.Id;
         public string Title { get; } = "Philips ICAP BU Data Sources";
-        public ICAPDataSourcesFactory()
-        {
-            var dataSources = new List<IAnalogyDataProvider>();
-            dataSources.Add(new OfflineICAPLog());
-            Items = dataSources;
-        }
-
-
-
+        public IEnumerable<IAnalogyDataProvider> DataProviders { get; } = new List<IAnalogyDataProvider> { new OfflineICAPLog() };
     }
 
     public class ICAPCustomActionFactory : IAnalogyCustomActionsFactory
     {
+        public Guid FactoryId { get; } = ICAPFactory.Id;
         public string Title { get; } = "Philips ICAP BU Tools";
-        public IEnumerable<IAnalogyCustomAction> Items => Actions;
-        private List<IAnalogyCustomAction> Actions { get; }
 
-        public ICAPCustomActionFactory()
-        {
-            Actions = new List<IAnalogyCustomAction>();
-            Actions.Add(new FixCorruptedFilelAction());
-            //Actions.Add(new SplunkAction());
-            Actions.Add(new LogConfiguratorAction());
-        }
-
+        IEnumerable<IAnalogyCustomAction> IAnalogyCustomActionsFactory.Actions { get; } =
+            new List<IAnalogyCustomAction> { new FixCorruptedFilelAction(), new LogConfiguratorAction() };
 
     }
 
