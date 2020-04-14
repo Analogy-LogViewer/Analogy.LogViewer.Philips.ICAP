@@ -1,10 +1,9 @@
-﻿using Analogy.LogViewer.Philips;
-using System;
+﻿using System;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Analogy.Implementation.Philips
+namespace Analogy.LogViewer.Philips.ICAP
 {
     public partial class FixFileUC : UserControl
     {

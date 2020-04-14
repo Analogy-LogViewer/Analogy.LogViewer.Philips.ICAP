@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Analogy.Interfaces;
 using Newtonsoft.Json;
 
-namespace Analogy.LogViewer.Philips
+namespace Analogy.LogViewer.Philips.ICAP
 {
     public class LogInfoWithJsonAttributes
     {

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Analogy.Implementation.Philips.Tools
+namespace Analogy.LogViewer.Philips.ICAP.Tools
 {
     public partial class FixFileForm : Form
     {

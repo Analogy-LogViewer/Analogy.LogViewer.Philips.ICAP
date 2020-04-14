@@ -1,11 +1,11 @@
-﻿using Analogy.Interfaces;
-using Analogy.Interfaces.Factories;
-using Analogy.LogViewer.Philips.CustomActions;
-using Analogy.LogViewer.Philips.DataSources;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Analogy.Interfaces;
+using Analogy.Interfaces.Factories;
+using Analogy.LogViewer.Philips.ICAP.CustomActions;
+using Analogy.LogViewer.Philips.ICAP.DataSources;
 
-namespace Analogy.LogViewer.Philips.Factories
+namespace Analogy.LogViewer.Philips.ICAP.Factories
 {
     public class ICAPFactory : IAnalogyFactory
     {

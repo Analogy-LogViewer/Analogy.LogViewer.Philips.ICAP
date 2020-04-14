@@ -1,4 +1,4 @@
-﻿namespace Analogy.Implementation.Philips.Tools
+﻿namespace Analogy.LogViewer.Philips.ICAP.Tools
 {
     partial class FixFileForm
     {
@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FixFileForm));
             this.labelControl1 = new System.Windows.Forms.Label();
-            this.fixFileUC1 = new global::Analogy.Implementation.Philips.FixFileUC();
+            this.fixFileUC1 = new global::Analogy.LogViewer.Philips.ICAP.FixFileUC();
             this.SuspendLayout();
             // 
             // labelControl1

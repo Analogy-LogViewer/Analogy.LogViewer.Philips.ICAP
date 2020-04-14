@@ -1,8 +1,8 @@
-﻿using Analogy.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Analogy.Interfaces;
 
-namespace Analogy.LogViewer.Philips.Managers
+namespace Analogy.LogViewer.Philips.ICAP.Managers
 {
     public class LogManager : IAnalogyLogger
     {

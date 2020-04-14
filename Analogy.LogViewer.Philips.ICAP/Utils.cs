@@ -1,5 +1,3 @@
-using Analogy.Interfaces;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,13 +5,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Serialization;
-using System.Xml.XPath;
+using Analogy.Interfaces;
+using Newtonsoft.Json;
 
-namespace Analogy.LogViewer.Philips
+namespace Analogy.LogViewer.Philips.ICAP
 {
     public class Utils
     {

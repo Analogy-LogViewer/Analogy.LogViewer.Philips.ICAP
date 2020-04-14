@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Analogy.Interfaces;
 
-namespace Analogy.LogViewer.Philips
+namespace Analogy.LogViewer.Philips.ICAP
 {
     public abstract class LogLoader
     {

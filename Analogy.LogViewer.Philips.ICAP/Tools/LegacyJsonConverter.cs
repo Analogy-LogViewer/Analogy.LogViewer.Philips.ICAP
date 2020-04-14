@@ -13,7 +13,7 @@ using Analogy.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Analogy.LogViewer.Philips.Tools
+namespace Analogy.LogViewer.Philips.ICAP.Tools
 {
     public class LegacyJsonConverter
     {

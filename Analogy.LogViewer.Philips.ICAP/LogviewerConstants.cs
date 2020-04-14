@@ -1,4 +1,4 @@
-﻿namespace Analogy.LogViewer.Philips
+﻿namespace Analogy.LogViewer.Philips.ICAP
 {
     internal class LogviewerConstants
     {

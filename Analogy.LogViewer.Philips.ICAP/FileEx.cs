@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Analogy.LogViewer.Philips
+namespace Analogy.LogViewer.Philips.ICAP
 {
 
     public static class FileEx

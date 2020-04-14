@@ -4,7 +4,7 @@ using System.Data;
 using System.Linq;
 using Analogy.Interfaces;
 
-namespace Analogy.LogViewer.Philips.Tools
+namespace Analogy.LogViewer.Philips.ICAP.Tools
 {
         
    public class FileComparerProcessor : ILogMessageCreatedHandler

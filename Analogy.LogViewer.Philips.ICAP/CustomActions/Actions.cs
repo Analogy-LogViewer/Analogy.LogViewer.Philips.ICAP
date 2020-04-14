@@ -1,13 +1,13 @@
-﻿using Analogy.Implementation.Philips.Tools;
-using Analogy.Interfaces;
-using Analogy.LogViewer.Philips.Properties;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Analogy.Interfaces;
+using Analogy.LogViewer.Philips.ICAP.Properties;
+using Analogy.LogViewer.Philips.ICAP.Tools;
 
-namespace Analogy.LogViewer.Philips.CustomActions
+namespace Analogy.LogViewer.Philips.ICAP.CustomActions
 {
     public class LogConfiguratorAction : IAnalogyCustomAction
     {

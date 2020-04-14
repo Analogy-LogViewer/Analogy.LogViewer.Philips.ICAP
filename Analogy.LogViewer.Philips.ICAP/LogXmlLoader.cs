@@ -1,4 +1,3 @@
-using Analogy.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,8 +8,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using Analogy.Interfaces;
 
-namespace Analogy.LogViewer.Philips
+namespace Analogy.LogViewer.Philips.ICAP
 {
     public class LogXmlLoader : LogLoader
     {

@@ -1,14 +1,14 @@
-﻿using Analogy.Interfaces;
-using Analogy.LogViewer.Philips.Managers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Analogy.Interfaces;
+using Analogy.LogViewer.Philips.ICAP.Managers;
 
-namespace Analogy.LogViewer.Philips.DataSources
+namespace Analogy.LogViewer.Philips.ICAP.DataSources
 {
     public class OfflineICAPLog : IAnalogyOfflineDataProvider
     {
