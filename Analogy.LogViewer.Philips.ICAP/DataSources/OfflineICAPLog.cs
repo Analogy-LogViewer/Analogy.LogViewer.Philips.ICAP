@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -26,12 +27,13 @@ namespace Analogy.LogViewer.Philips.ICAP.DataSources
 
         public IEnumerable<string> SupportFormats { get; } = new[] { "*.etl", "*.log", "*.nlog", "*.json" };
         public string InitialFolderFullPath { get; } = string.Empty;//Path.Combine("", "data");
+        public bool UseCustomColors { get; set; } = false;
+        public IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
+            => Array.Empty<(string, string)>();
 
-        public OfflineICAPLog()
-        {
-        }
-
-
+        public (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
+            => (Color.Empty, Color.Empty);
+     
         public Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
             LogManager.Instance.SetLogger(logger);
