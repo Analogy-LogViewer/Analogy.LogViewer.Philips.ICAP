@@ -15,6 +15,7 @@
     <PackageIcon>AnalogyPhilips.png</PackageIcon>
     <RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.Philips.ICAP</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
