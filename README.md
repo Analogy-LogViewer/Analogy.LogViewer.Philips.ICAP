@@ -8,6 +8,7 @@ Philips' ICAP BU data provider
   1. *.log Files: Client logs Files.
   2. *.Json - Radar Json Log Files.
 
+for etl format, the Philips InnerSource Data provider is available (private repository - https://github.com/Analogy-LogViewer/Analogy.LogViewer.ICAP). 
 
 ## How To Use
 1. Download the latest [Analogy Log Viewer](https://github.com/Analogy-LogViewer/Analogy.LogViewer) from the [release](https://github.com/Analogy-LogViewer/Analogy.LogViewer/releases) section (.net framework or .net Core version).
