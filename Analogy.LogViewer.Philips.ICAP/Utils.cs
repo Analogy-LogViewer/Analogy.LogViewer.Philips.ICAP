@@ -1,3 +1,5 @@
+using Analogy.Interfaces;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -5,8 +7,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using Analogy.Interfaces;
-using Newtonsoft.Json;
 
 namespace Analogy.LogViewer.Philips.ICAP
 {
@@ -14,7 +14,7 @@ namespace Analogy.LogViewer.Philips.ICAP
     {
         static string[] spliter = { Environment.NewLine };
 
-    
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetAdditionalLogMessage(AnalogyLogMessage msg, string logMessage)
         {
@@ -74,6 +74,7 @@ namespace Analogy.LogViewer.Philips.ICAP
             logMessage.Text = lf.Description;
             logMessage.ProcessID = Convert.ToInt32(lf.ProcessId);
             logMessage.Date = lf.DateTime;
+            logMessage.MachineName = lf.MachineName ?? string.Empty;
             SetAdditionalLogMessage(logMessage, lf.AdditionalInfo + lf.Exception);
             logMessage.MethodName = string.IsNullOrEmpty(lf.Exception) ? "" : lf.Exception;
             return logMessage;
@@ -102,6 +103,7 @@ namespace Analogy.LogViewer.Philips.ICAP
                 message.Text = lf.Description + lf.Exception;
                 message.ProcessID = Convert.ToInt32(lf.ProcessId);
                 message.Date = lf.DateTime;
+                message.MachineName = lf.MachineName ?? string.Empty;
                 message.Category = "Platform2.0";
                 return message;
             }
@@ -124,7 +126,7 @@ namespace Analogy.LogViewer.Philips.ICAP
 
             return false;
         }
-  
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static AnalogyLogLevel GetAnalogyLogLevel(string severity)
         {
@@ -212,6 +214,7 @@ namespace Analogy.LogViewer.Philips.ICAP
             m.Text = eEntry.Message;
             m.User = eEntry.UserName;
             m.Module = eEntry.Source;
+            m.MachineName = eEntry.MachineName;
             return m;
         }
 
@@ -380,4 +383,4 @@ namespace Analogy.LogViewer.Philips.ICAP
         /// </summary>
         LastMonth
     }
-    }
+}

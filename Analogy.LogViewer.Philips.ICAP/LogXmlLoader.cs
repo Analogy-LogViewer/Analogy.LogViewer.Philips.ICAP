@@ -1,3 +1,4 @@
+using Analogy.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,7 +9,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
-using Analogy.Interfaces;
 
 namespace Analogy.LogViewer.Philips.ICAP
 {
@@ -194,6 +194,10 @@ namespace Analogy.LogViewer.Philips.ICAP
                         {
                             logM.MethodName = xr.ReadElementContentAsString();
                         }
+                        else if (xr.IsStartElement("MachineName"))
+                        {
+                            logM.MachineName = xr.ReadElementContentAsString();
+                        }
                         else if (xr.IsStartElement("AuditType"))
                         {
 
@@ -323,6 +327,10 @@ namespace Analogy.LogViewer.Philips.ICAP
                                  else if (xr.IsStartElement("Method"))
                                  {
                                      logM.MethodName = xr.ReadElementContentAsString();
+                                 }
+                                 else if (xr.IsStartElement("MachineName"))
+                                 {
+                                     logM.MachineName = xr.ReadElementContentAsString();
                                  }
                                  else if (xr.IsStartElement("FileName"))
                                  {
