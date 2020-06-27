@@ -78,7 +78,7 @@ namespace Analogy.LogViewer.Philips.ICAP.DataSources
                 m.Level = AnalogyLogLevel.Critical;
                 m.Source = "Analogy";
                 m.Module = System.Diagnostics.Process.GetCurrentProcess().ProcessName;
-                m.ProcessID = System.Diagnostics.Process.GetCurrentProcess().Id;
+                m.ProcessId = System.Diagnostics.Process.GetCurrentProcess().Id;
                 m.Class = AnalogyLogClass.General;
                 m.User = Environment.UserName;
                 m.Date = DateTime.Now;
