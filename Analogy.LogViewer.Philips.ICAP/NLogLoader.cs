@@ -45,7 +45,7 @@ namespace Analogy.LogViewer.Philips.ICAP
                             AnalogyLogMessage m = new AnalogyLogMessage();
                             if (DateTime.TryParse(items[0], out DateTime dt))
                                 m.Date = dt;
-                            m.ProcessID = int.Parse(items[2]);
+                            m.ProcessId = int.Parse(items[2]);
                             switch (items[3])
                             {
                                 case "INFO":
@@ -70,7 +70,7 @@ namespace Analogy.LogViewer.Philips.ICAP
 
                             if (int.TryParse(items[4], out int threadID))
                             {
-                                m.Thread = threadID;
+                                m.ThreadId = threadID;
                             }
                             if (items.Length == 7)
                             {

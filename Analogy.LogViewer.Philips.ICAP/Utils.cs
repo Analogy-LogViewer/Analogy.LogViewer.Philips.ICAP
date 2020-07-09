@@ -23,7 +23,7 @@ namespace Analogy.LogViewer.Philips.ICAP
             if (logData.Length == 0) return;
             if (Guid.TryParse(logData[0], out var messageId))
             {
-                msg.ID = messageId;
+                msg.Id = messageId;
             }
             else
             {
@@ -72,7 +72,7 @@ namespace Analogy.LogViewer.Philips.ICAP
             logMessage.Source = lf.HumanReadableEventId;
             logMessage.Level = GetAnalogyLogLevel(lf.Severity);
             logMessage.Text = lf.Description;
-            logMessage.ProcessID = Convert.ToInt32(lf.ProcessId);
+            logMessage.ProcessId = Convert.ToInt32(lf.ProcessId);
             logMessage.Date = lf.DateTime;
             logMessage.MachineName = lf.MachineName ?? string.Empty;
             SetAdditionalLogMessage(logMessage, lf.AdditionalInfo + lf.Exception);
@@ -85,7 +85,7 @@ namespace Analogy.LogViewer.Philips.ICAP
             if (string.IsNullOrEmpty(lf.AdditionalInfo))
             {
                 AnalogyLogMessage message = new AnalogyLogMessage();
-                message.ID = Guid.NewGuid();
+                message.Id = Guid.NewGuid();
                 //todo
                 //message.Class = lf.Severity == Enum.GetName(typeof(Severity), Severity.Hazard)
                 //    ? AnalogyLogClass.Hazard
@@ -101,7 +101,7 @@ namespace Analogy.LogViewer.Philips.ICAP
                 message.Source = lf.HumanReadableModuleId; // module is nt source in PF2.0
                 message.Level = GetAnalogyLogLevel(lf.Severity);
                 message.Text = lf.Description + lf.Exception;
-                message.ProcessID = Convert.ToInt32(lf.ProcessId);
+                message.ProcessId = Convert.ToInt32(lf.ProcessId);
                 message.Date = lf.DateTime;
                 message.MachineName = lf.MachineName ?? string.Empty;
                 message.Category = "Platform2.0";
@@ -209,7 +209,7 @@ namespace Analogy.LogViewer.Philips.ICAP
 
             m.Category = eEntry.Category;
             m.Date = eEntry.TimeGenerated;
-            m.ID = Guid.NewGuid();
+            m.Id = Guid.NewGuid();
             m.Source = eEntry.Source;
             m.Text = eEntry.Message;
             m.User = eEntry.UserName;
@@ -346,7 +346,7 @@ namespace Analogy.LogViewer.Philips.ICAP
         }
 
         private static string GetCSVFromMessage(AnalogyLogMessage m) =>
-        $"ID:{m.ID};Text:{m.Text};Category:{m.Category};Source:{m.Source};Level:{m.Level};Class:{m.Class};Module:{m.Module};Method:{m.MethodName};FileName:{m.FileName};LineNumber:{m.LineNumber};ProcessID:{m.ProcessID};User:{m.User};Parameters:{(m.Parameters == null ? string.Empty : string.Join(",", m.Parameters))}";
+        $"ID:{m.Id};Text:{m.Text};Category:{m.Category};Source:{m.Source};Level:{m.Level};Class:{m.Class};Module:{m.Module};Method:{m.MethodName};FileName:{m.FileName};LineNumber:{m.LineNumber};ProcessID:{m.ProcessId};User:{m.User}";
     }
 
     /// <summary>

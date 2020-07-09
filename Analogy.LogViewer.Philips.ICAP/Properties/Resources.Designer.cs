@@ -193,6 +193,26 @@ namespace Analogy.LogViewer.Philips.ICAP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap philips_image_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("philips_image_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap philips_image_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("philips_image_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap serverOff {
             get {
                 object obj = ResourceManager.GetObject("serverOff", resourceCulture);

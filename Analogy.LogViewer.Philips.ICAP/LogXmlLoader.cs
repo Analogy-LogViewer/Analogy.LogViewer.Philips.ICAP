@@ -224,7 +224,7 @@ namespace Analogy.LogViewer.Philips.ICAP
                         {
                             try
                             {
-                                logM.ProcessID = int.Parse(xr.ReadElementContentAsString());
+                                logM.ProcessId = int.Parse(xr.ReadElementContentAsString());
                             }
                             catch
                             {
@@ -350,7 +350,7 @@ namespace Analogy.LogViewer.Philips.ICAP
                                  {
                                      try
                                      {
-                                         logM.ProcessID = int.Parse(xr.ReadElementContentAsString());
+                                         logM.ProcessId = int.Parse(xr.ReadElementContentAsString());
                                      }
                                      catch
                                      {
