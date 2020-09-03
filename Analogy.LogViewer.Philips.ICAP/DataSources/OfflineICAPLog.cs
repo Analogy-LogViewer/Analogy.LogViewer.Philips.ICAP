@@ -15,7 +15,9 @@ namespace Analogy.LogViewer.Philips.ICAP.DataSources
     {
         public bool IsConnected { get; set; }
 
-        public Guid ID { get; } = new Guid("AEDA3F2C-EEBF-4280-AD52-94A94BFBE6C5");
+        public Guid Id { get; } = new Guid("AEDA3F2C-EEBF-4280-AD52-94A94BFBE6C5");
+        public Image LargeImage => null;
+        public Image SmallImage => null;
         public string OptionalTitle { get; } = "ICAP Offline Parser";
 
         public bool CanSaveToLogFile { get; } = true;
@@ -33,7 +35,7 @@ namespace Analogy.LogViewer.Philips.ICAP.DataSources
 
         public (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
             => (Color.Empty, Color.Empty);
-     
+
         public Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
             LogManager.Instance.SetLogger(logger);
