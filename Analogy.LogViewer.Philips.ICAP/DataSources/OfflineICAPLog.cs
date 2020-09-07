@@ -15,10 +15,10 @@ namespace Analogy.LogViewer.Philips.ICAP.DataSources
     {
         public bool IsConnected { get; set; }
 
-        public Guid Id { get; } = new Guid("AEDA3F2C-EEBF-4280-AD52-94A94BFBE6C5");
-        public Image LargeImage => null;
-        public Image SmallImage => null;
-        public string OptionalTitle { get; } = "ICAP Offline Parser";
+        public Guid Id { get; set; } = new Guid("AEDA3F2C-EEBF-4280-AD52-94A94BFBE6C5");
+        public Image LargeImage { get; set; } = null;
+        public Image SmallImage { get; set; } = null;
+        public string OptionalTitle { get; set; } = "ICAP Offline Parser";
 
         public bool CanSaveToLogFile { get; } = true;
         public string FileOpenDialogFilters { get; } = "All supported log file types|*.log;*.etl;*.nlog;*.json|Plain ICAP XML log file (*.log)|*.log|JSON file (*.json)|*.json|NLOG file (*.nlog)|*.nlog|ETW log file (*.etl)|*.etl";

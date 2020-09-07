@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
-using Analogy.DataProviders.Extensions;
+using Analogy.Interfaces;
 using Analogy.LogViewer.Philips.ICAP.Factories;
 using Analogy.LogViewer.Philips.ICAP.Properties;
 
 namespace Analogy.LogViewer.Philips.ICAP
 {
-    public class ICAPComponentImages: IAnalogyComponentImages
+    public class ICAPComponentImages : IAnalogyComponentImages
     {
         public Image GetLargeImage(Guid analogyComponentId)
         {
