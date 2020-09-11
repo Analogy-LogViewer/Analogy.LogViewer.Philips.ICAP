@@ -248,7 +248,7 @@ namespace Analogy.LogViewer.Philips.ICAP
                 if (token.IsCancellationRequested)
                 {
                     string msg = "Processing cancelled by User.";
-                    messages.Add(new AnalogyLogMessage(msg, AnalogyLogLevel.Event, AnalogyLogClass.General, "Analogy", "None"));
+                    messages.Add(new AnalogyLogMessage(msg, AnalogyLogLevel.Information, AnalogyLogClass.General, "Analogy", "None"));
                     break;
                 }
             }

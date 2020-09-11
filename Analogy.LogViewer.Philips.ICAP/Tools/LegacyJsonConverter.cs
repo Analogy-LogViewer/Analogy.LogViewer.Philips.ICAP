@@ -10,6 +10,7 @@ using System.Runtime.Serialization;
 using System.Security;
 using System.Threading;
 using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 

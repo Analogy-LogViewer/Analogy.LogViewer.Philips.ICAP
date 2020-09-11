@@ -49,7 +49,7 @@ namespace Analogy.LogViewer.Philips.ICAP
                             switch (items[3])
                             {
                                 case "INFO":
-                                    m.Level = AnalogyLogLevel.Event;
+                                    m.Level = AnalogyLogLevel.Information;
                                     break;
                                 case "WARN":
                                     m.Level = AnalogyLogLevel.Warning;
@@ -61,7 +61,7 @@ namespace Analogy.LogViewer.Philips.ICAP
                                     m.Level = AnalogyLogLevel.Critical;
                                     break;
                                 default:
-                                    m.Level = AnalogyLogLevel.Event;
+                                    m.Level = AnalogyLogLevel.Information;
                                     break;
                             }
 
@@ -99,7 +99,7 @@ namespace Analogy.LogViewer.Philips.ICAP
                         if (token.IsCancellationRequested)
                         {
                             string msg = "Processing cancelled by User.";
-                            messages.Add(new AnalogyLogMessage(msg, AnalogyLogLevel.Event, AnalogyLogClass.General, "Analogy", "None"));
+                            messages.Add(new AnalogyLogMessage(msg, AnalogyLogLevel.Information, AnalogyLogClass.General, "Analogy", "None"));
                             logWindow.AppendMessages(messages, Utils.GetFileNameAsDataSource(FileName));
                             return messages;
                         }

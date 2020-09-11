@@ -138,26 +138,26 @@ namespace Analogy.LogViewer.Philips.ICAP
                 case "DebugInfo":
                     return AnalogyLogLevel.Verbose;
                 case "None":
-                    return AnalogyLogLevel.Disabled;
+                    return AnalogyLogLevel.None;
                 case "Error":
                     return AnalogyLogLevel.Error;
                 case "Info":
-                    return AnalogyLogLevel.Event;
+                    return AnalogyLogLevel.Information;
                 case "DebugVerbose":
                     return AnalogyLogLevel.Debug;
                 case "Warning":
                     return AnalogyLogLevel.Warning;
                 case "Event":
-                    return AnalogyLogLevel.Event;
+                    return AnalogyLogLevel.Information;
                 case "Verbose":
                     return AnalogyLogLevel.Verbose;
                 case "Debug":
                     return AnalogyLogLevel.Debug;
                 case "Disabled":
-                    return AnalogyLogLevel.Disabled;
+                    return AnalogyLogLevel.None;
             }
 
-            return AnalogyLogLevel.Event;
+            return AnalogyLogLevel.Information;
         }
 
         public static List<FileInfo> GetSupportedFiles(DirectoryInfo dirInfo, bool recursive)
@@ -194,16 +194,16 @@ namespace Analogy.LogViewer.Philips.ICAP
                     m.Level = AnalogyLogLevel.Warning;
                     break;
                 case EventLogEntryType.Information:
-                    m.Level = AnalogyLogLevel.Event;
+                    m.Level = AnalogyLogLevel.Information;
                     break;
                 case EventLogEntryType.SuccessAudit:
-                    m.Level = AnalogyLogLevel.Event;
+                    m.Level = AnalogyLogLevel.Information;
                     break;
                 case EventLogEntryType.FailureAudit:
                     m.Level = AnalogyLogLevel.Error;
                     break;
                 default:
-                    m.Level = AnalogyLogLevel.Event;
+                    m.Level = AnalogyLogLevel.Information;
                     break;
             }
 
