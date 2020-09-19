@@ -9,13 +9,13 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <UseWindowsForms>true</UseWindowsForms>
     <Authors>Lior Banai</Authors>
-    <Copyright>Lior Banai ©  2020</Copyright>
+    <Copyright>Lior Banai © 2020</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.Philips.ICAP</PackageProjectUrl>
     <PackageIcon>AnalogyPhilips.png</PackageIcon>
     <RepositoryUrl>https://github.com/Analogy-LogViewer/Analogy.LogViewer.Philips.ICAP</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
