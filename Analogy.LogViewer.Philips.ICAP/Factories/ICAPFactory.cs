@@ -12,6 +12,11 @@ namespace Analogy.LogViewer.Philips.ICAP.Factories
     public class ICAPFactory : IAnalogyFactory
     {
         internal static Guid Id = new Guid("F0FD2BC8-5DA5-4A7D-8E09-4E4C411EDA0C");
+        public void RegisterNotificationCallback(INotificationReporter notificationReporter)
+        {
+            
+        }
+
         public Guid FactoryId { get; set; } = Id;
         public string Title { get; set; } = "Philips ICAP BU Logs";
         public IEnumerable<IAnalogyChangeLog> ChangeLog { get; set; } = new List<IAnalogyChangeLog>(0);
