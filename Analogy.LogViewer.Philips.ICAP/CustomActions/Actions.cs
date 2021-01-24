@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Analogy.Interfaces;
+using Analogy.Interfaces.DataTypes;
+using Analogy.LogViewer.Philips.ICAP.Properties;
+using Analogy.LogViewer.Philips.ICAP.Tools;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using Analogy.Interfaces;
-using Analogy.LogViewer.Philips.ICAP.Properties;
-using Analogy.LogViewer.Philips.ICAP.Tools;
 
 namespace Analogy.LogViewer.Philips.ICAP.CustomActions
 {
@@ -18,6 +19,7 @@ namespace Analogy.LogViewer.Philips.ICAP.CustomActions
 
         public string Title { get; set; } = "External Log Configurator";
         public AnalogyCustomActionType Type { get; } = AnalogyCustomActionType.BelongsToProvider;
+        public AnalogyToolTip? ToolTip { get; set; }
         private string logConfiguratorEXE = "LogConfigurator.exe";
 
         private void OpenLogConfigurator()
@@ -47,6 +49,7 @@ namespace Analogy.LogViewer.Philips.ICAP.CustomActions
         public Image SmallImage { get; set; } = Resources.BreakingChange_16x16;
         public string Title { get; set; } = "Fix Corrupted XML File";
         public AnalogyCustomActionType Type { get; } = AnalogyCustomActionType.BelongsToProvider;
+        public AnalogyToolTip? ToolTip { get; set; }
 
         private void InternalAction()
         {
@@ -66,6 +69,7 @@ namespace Analogy.LogViewer.Philips.ICAP.CustomActions
         public Image SmallImage { get; set; } = Resources.Convert_16x16;
         public string Title { get; set; } = "Splunk Convertor";
         public AnalogyCustomActionType Type { get; } = AnalogyCustomActionType.BelongsToProvider;
+        public AnalogyToolTip? ToolTip { get; set; }
 
         private void InternalAction()
         {

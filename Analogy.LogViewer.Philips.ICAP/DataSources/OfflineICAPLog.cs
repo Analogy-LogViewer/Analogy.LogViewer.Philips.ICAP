@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Analogy.Interfaces;
+using Analogy.LogViewer.Philips.ICAP.Managers;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -6,47 +8,43 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Analogy.Interfaces;
-using Analogy.LogViewer.Philips.ICAP.Managers;
 
 namespace Analogy.LogViewer.Philips.ICAP.DataSources
 {
-    public class OfflineICAPLog : IAnalogyOfflineDataProvider
+    public class OfflineICAPLog : Template.OfflineDataProvider
     {
         public bool IsConnected { get; set; }
 
-        public Guid Id { get; set; } = new Guid("AEDA3F2C-EEBF-4280-AD52-94A94BFBE6C5");
-        public Image LargeImage { get; set; } = null;
-        public Image SmallImage { get; set; } = null;
-        public string OptionalTitle { get; set; } = "ICAP Offline Parser";
+        public override Guid Id { get; set; } = new Guid("AEDA3F2C-EEBF-4280-AD52-94A94BFBE6C5");
+        public override string OptionalTitle { get; set; } = "ICAP Offline Parser";
 
-        public bool CanSaveToLogFile { get; } = true;
-        public string FileOpenDialogFilters { get; } = "All supported log file types|*.log;*.etl;*.nlog;*.json|Plain ICAP XML log file (*.log)|*.log|JSON file (*.json)|*.json|NLOG file (*.nlog)|*.nlog|ETW log file (*.etl)|*.etl";
-        public bool DisableFilePoolingOption { get; } = false;
+        public override bool CanSaveToLogFile { get; set; } = true;
+        public override string FileOpenDialogFilters { get; set; } = "All supported log file types|*.log;*.etl;*.nlog;*.json|Plain ICAP XML log file (*.log)|*.log|JSON file (*.json)|*.json|NLOG file (*.nlog)|*.nlog|ETW log file (*.etl)|*.etl";
+        public override bool DisableFilePoolingOption { get; set; } = false;
 
-        public string FileSaveDialogFilters =>
+        public override string FileSaveDialogFilters =>
             "Plain XML log file (*.log)|*.log|JSON file (*.json)|*.json|Zipped XML log file (*.zip)|*.zip|ETW log file (*.etl)|*.etl";
 
-        public IEnumerable<string> SupportFormats { get; } = new[] { "*.etl", "*.log", "*.nlog", "*.json" };
-        public string InitialFolderFullPath { get; } = string.Empty;//Path.Combine("", "data");
-        public bool UseCustomColors { get; set; } = false;
-        public IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
+        public override IEnumerable<string> SupportFormats { get; set; } = new[] { "*.etl", "*.log", "*.nlog", "*.json" };
+        public override string InitialFolderFullPath { get; set; } = string.Empty;//Path.Combine("", "data");
+        public override bool UseCustomColors { get; set; } = false;
+        public override IEnumerable<(string originalHeader, string replacementHeader)> GetReplacementHeaders()
             => Array.Empty<(string, string)>();
 
-        public (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
+        public override (Color backgroundColor, Color foregroundColor) GetColorForMessage(IAnalogyLogMessage logMessage)
             => (Color.Empty, Color.Empty);
 
-        public Task InitializeDataProviderAsync(IAnalogyLogger logger)
+        public override async Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
+            await base.InitializeDataProviderAsync(logger);
             LogManager.Instance.SetLogger(logger);
-            return Task.CompletedTask;
         }
 
-        public void MessageOpened(AnalogyLogMessage message)
+        public override void MessageOpened(AnalogyLogMessage message)
         {
             //nop
         }
-        public async Task<IEnumerable<AnalogyLogMessage>> Process(string fileName, CancellationToken token, ILogMessageCreatedHandler messagesHandler)
+        public override async Task<IEnumerable<AnalogyLogMessage>> Process(string fileName, CancellationToken token, ILogMessageCreatedHandler messagesHandler)
         {
             //todo
 
@@ -89,12 +87,8 @@ namespace Analogy.LogViewer.Philips.ICAP.DataSources
             }
         }
 
-        public IEnumerable<FileInfo> GetSupportedFiles(DirectoryInfo dirInfo, bool recursiveLoad)
-        {
-            return GetSupportedFilesInternal(dirInfo, recursiveLoad);
-        }
 
-        public Task SaveAsync(List<AnalogyLogMessage> messages, string fileName) => Task.Factory.StartNew(() =>
+        public override Task SaveAsync(List<AnalogyLogMessage> messages, string fileName) => Task.Factory.StartNew(() =>
              {
 
                  if (fileName.EndsWith(".zip", StringComparison.OrdinalIgnoreCase))
@@ -176,17 +170,17 @@ namespace Analogy.LogViewer.Philips.ICAP.DataSources
              });
 
 
-        public bool CanOpenFile(string fileName)
+        public override bool CanOpenFile(string fileName)
 
             => fileName.EndsWith(".etl", StringComparison.InvariantCultureIgnoreCase) ||
                fileName.EndsWith(".log", StringComparison.InvariantCultureIgnoreCase) ||
                fileName.EndsWith(".nlog", StringComparison.InvariantCultureIgnoreCase) ||
                fileName.EndsWith(".json", StringComparison.InvariantCultureIgnoreCase);
 
-        public bool CanOpenAllFiles(IEnumerable<string> fileNames) => fileNames.All(CanOpenFile);
+        public override bool CanOpenAllFiles(IEnumerable<string> fileNames) => fileNames.All(CanOpenFile);
 
 
-        public static List<FileInfo> GetSupportedFilesInternal(DirectoryInfo dirInfo, bool recursive)
+        protected override List<FileInfo> GetSupportedFilesInternal(DirectoryInfo dirInfo, bool recursive)
         {
             List<FileInfo> files = dirInfo.GetFiles("*.etl").Concat(dirInfo.GetFiles("*.log"))
                 .Concat(dirInfo.GetFiles("*.nlog")).Concat(dirInfo.GetFiles("*.json"))
